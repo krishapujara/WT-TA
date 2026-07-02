@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.write("<h2>Program 4 : Current Date and Time</h2>");
+
+      let today = new Date();
+
+      document.write("Current Date : " + today + "<br>");
+      document.write("Day : " + today.getDate() + "<br>");
+      document.write("Month : " + (today.getMonth() + 1) + "<br>");
+      document.write("Year : " + today.getFullYear() + "<br>");
+      document.write("Hours : " + today.getHours() + "<br>");
+      document.write("Minutes : " + today.getMinutes() + "<br>");
+      document.write("Seconds : " + today.getSeconds());
+
+      document.write("<hr>");
+      document.write("<h2>Program 5 : Calculate Age</h2>");
+
+      let birthYear = parseInt(prompt("Enter Birth Year"));
+      let currentYear = new Date().getFullYear();
+      let age = currentYear - birthYear;
+
+      document.write("Your Age is : " + age + " Years");
+
+      document.write("<hr>");
+      document.write("<h2>Program 7 : Live Digital Clock</h2>");
+
+      function showClock() {
+        let now = new Date();
+
+        let h = now.getHours();
+        let m = now.getMinutes();
+        let s = now.getSeconds();
+
+        console.log(h + ":" + m + ":" + s);
+      }
+
+      setInterval(showClock, 1000);
+      document.write("<hr>");
+      document.write("<h2>Program 8 : Countdown Timer</h2>");
+
+      function countdown() {
+        let now = new Date();
+        let newYear = new Date(now.getFullYear() + 1, 0, 1);//2027 - 01(jan) - 1(day-1)
+        let days = (newYear - now) / (1000 * 60 * 60 * 24);
+
+         console.log("Days Left : " + Math.floor(days));
+       }
+
+      setInterval(countdown, 1000);
+
+      document.write("<hr>");
+      document.write("<h2>Program 11 : Days Between Two Dates</h2>");
+
+      let date1 = prompt("Enter First Date (YYYY-MM-DD)");
+      let date2 = prompt("Enter Second Date (YYYY-MM-DD)");
+
+      let d1 = new Date(date1);
+      let d2 = new Date(date2);
+
+      let totalDays = (d2 - d1) / (1000 * 60 * 60 * 24); //(d2-d1) give ans in millisec
+      //       1000 → milliseconds to seconds
+      //       60   → seconds to minutes
+      //       60   → minutes to hours
+      //       24   → hours to days
+
+      let weekends = Math.floor(totalDays / 7) * 2;
+    
+
+      let workingDays = totalDays - weekends;
+
+      document.write("Total Days : " + totalDays + "<br>");
+      document.write("Weekend Days : " + weekends + "<br>");
+      document.write("Working Days : " + workingDays);
+
+      document.write("<hr>");
+     </script>
+  </body>
+</html>

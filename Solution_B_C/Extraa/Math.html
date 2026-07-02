@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      document.write("<h2>Program 1 : Max, Min and Absolute Value</h2>");
+
+      let num1 = parseInt(prompt("Enter First Number"));
+      let num2 = parseInt(prompt("Enter Second Number"));
+
+      document.write("Maximum Number = " + Math.max(num1, num2) + "<br>");
+      document.write("Minimum Number = " + Math.min(num1, num2) + "<br>");
+
+      let num3 = parseInt(prompt("Enter a Negative Number"));
+
+      document.write("Absolute Value = " + Math.abs(num3));
+
+      document.write("<hr>");
+
+      document.write("<h2>Program 2 : Random Dice Number</h2>");
+
+      let dice = Math.floor(Math.random() * 6) + 1;
+
+      document.write("Dice Number = " + dice);
+
+      document.write("<hr>");
+
+      document.write("<h2>Program 3 : Floor, Ceiling, Round and Truncate</h2>");
+
+      let number = parseFloat(prompt("Enter Decimal Number"));
+
+      document.write("Original Number = " + number + "<br>");
+      document.write("Floor = " + Math.floor(number) + "<br>");
+      document.write("Ceiling = " + Math.ceil(number) + "<br>");
+      document.write("Round = " + Math.round(number) + "<br>");
+      document.write("Truncate = " + Math.trunc(number));
+
+      document.write("<hr>");
+
+      document.write("<h2>Program 6 : Height of Building</h2>");
+
+      let distance = parseFloat(prompt("Enter Distance from Building"));
+
+      let angle = parseFloat(prompt("Enter Angle in Degree"));
+
+      let radian = (angle * Math.PI) / 180;
+
+      let height = distance * Math.tan(radian);
+
+      document.write("Height of Building = " + height.toFixed(2) + " Meter");
+
+      document.write("<hr>");
+
+      document.write("<h2>Program 9 : Random Numeric Password</h2>");
+
+      let length = parseInt(prompt("Enter Password Length"));
+
+      let password = "";
+
+      for (let i = 1; i <= length; i++) {
+        password = password + Math.floor(Math.random() * 10);
+      }
+
+      document.write("Password = " + password);
+
+      document.write("<hr>");
+
+      document.write("<h2>Program 10 : Random Alpha Numeric Password</h2>");
+
+      let size = parseInt(prompt("Enter Password Length"));
+
+      let chars =
+        "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+      let pass = "";
+
+      for (let i = 1; i <= size; i++) {
+        let index = Math.floor(Math.random() * chars.length);
+        pass = pass + chars[index];
+      }
+
+      document.write("Password = " + pass);
+
+      document.write("<hr>");
+    </script>
+  </body>
+</html>
