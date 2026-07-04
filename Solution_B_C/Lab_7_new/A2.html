@@ -195,27 +195,16 @@
             // -------------------------------------------------------------
             // RULE 6: Email validation
             // -------------------------------------------------------------
-            // Simple check ensuring it contains an '@' and a '.' after it
+            // Simple check ensuring it contains an '@' and a '.' after it aani jagya ae email no regex pn use kari sako je already sir ni ppt ma che
             let atPos = email.indexOf("@");
             let dotPos = email.lastIndexOf(".");
             if (atPos < 1 || dotPos < atPos + 2 || dotPos + 2 >= email.length) {
                 errors.push("Please enter a valid Email ID.");
             }
 
-            // -------------------------------------------------------------
-            // DECISION LOGIC: If errors exist, block submission and show them
-            // -------------------------------------------------------------
-            if (errors.length > 0) {
-                // Prevent form from submitting/refreshing page
-                event.preventDefault();
-
-                // Display each error in our list container
-                errors.forEach(function(errorItem) {
-                    errorDisplay.innerHTML += "<li>" + errorItem + "</li>";
-                });
-                
-                return false; // Tells the form validation failed
-            }
+           for(let i = 0; i < error.length; i++){
+            errorDisplay.innerHTML += "<li>" + error[i] + "</li>";
+           }
 
             // If errors array is empty, code will proceed to submit naturally
             alert("Validation successful! Form submitted.");
