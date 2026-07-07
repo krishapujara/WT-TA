@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Keyboard Events</title>
+</head>
+<body>
+
+<input type="text" onkeypress="checkKey(event)" onkeyup="changeColor()" placeholder="Press any key">
+
+<p id="msg"></p>
+
+<script>
+
+function checkKey(event){
+    let key = event.key;
+
+    document.getElementById("msg").innerHTML = "Key Pressed : " + key;
+
+    if(key=="a" || key=="e" || key=="i" || key=="o" || key=="u"){
+        alert("Vowel Pressed");
+    }
+}
+
+function changeColor(){
+    document.body.style.backgroundColor = "blue";
+}
+
+</script>
+
+</body>
+</html>
