@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A2 - Keyboard Events</title>
+</head>
+<body>
+
+    <label for="keyInput">Type something here: </label>
+    <input type="text" id="keyInput" onfocus="keyboardEvent()"><br><br>
+    
+    <span id="text"></span>
+
+    <script>
+
+        function keyboardEvent(){
+
+            // 1. Fires the moment a key is pressed down
+            document.getElementById("keyInput").addEventListener('keydown', ()=> {
+                document.getElementById("text").innerHTML = "<b>keydown</b> event fired"; 
+            });
+
+            // 2. Fires when a key that produces a character is pressed (legacy but standard in school labs)
+            document.getElementById("keyInput").addEventListener('keypress', ()=> {
+                document.getElementById("text").innerHTML = "<i>keypress</i> event fired"; 
+            });
+
+            // 3. Fires the moment you release the key
+            document.getElementById("keyInput").addEventListener('keyup', ()=> {
+                document.getElementById("text").innerHTML = "<u>keyup</u> event fired";
+            });
+        }
+    </script>
+    
+</body>
+</html>

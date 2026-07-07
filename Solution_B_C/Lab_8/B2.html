@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Events</title>
+</head>
+<body>
+
+    <form id="myForm" onsubmit="event.preventDefault();">
+        
+        <label>Name (Focus/Blur): </label>
+        <input type="text" id="nameInput" onfocus="formEvents()"><br><br>
+
+        <label>City (Change): </label>
+        <select id="citySelect">
+            <option value="ny">New York</option>
+            <option value="lon">London</option>
+            <option value="del">Delhi</option>
+        </select><br><br>
+
+        <button type="submit" id="submitBtn">Submit Form</button>
+        <button type="reset" id="resetBtn">Reset Form</button>
+
+    </form><br>
+    
+    <span id="text"></span>
+
+    <script>
+
+        function formEvents(){
+
+            // 1. focus -> Fires when you click inside the text input box
+            document.getElementById("nameInput").addEventListener('focus', ()=> {
+                document.getElementById("text").innerHTML = "<b>focus</b> event fired (Input selected)"; 
+            });
+
+            // 2. blur -> Fires when you click outside the text input box after selecting it
+            document.getElementById("nameInput").addEventListener('blur', ()=> {
+                document.getElementById("text").innerHTML = "<i>blur</i> event fired (Input lost focus)"; 
+            });
+
+            // 3. change -> Fires when you select a different option in the dropdown list
+            document.getElementById("citySelect").addEventListener('change', ()=> {
+                document.getElementById("text").innerHTML = "<u>change</u> event fired (Option updated)"; 
+            });
+
+            // 4. submit -> Fires when you click the Submit button
+            document.getElementById("myForm").addEventListener('submit', ()=> {
+                document.getElementById("text").innerHTML = "<b>submit</b> event fired (Form submitted)"; 
+            });
+
+            // 5. reset -> Fires when you click the Reset button
+            document.getElementById("myForm").addEventListener('reset', ()=> {
+                document.getElementById("text").innerHTML = "<i>reset</i> event fired (Form cleared)"; 
+            });
+        }
+    </script>
+    
+</body>
+</html>
