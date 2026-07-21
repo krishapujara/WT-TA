@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>4. Write JavaScript that handles following mouse event. (B)
+• If mouse left button pressed on browser, it displayed message “Left Clicked”.
+• If mouse right button pressed on browser, it displayed message “Right Clicked”.</title>
+</head>
+<body>
+    <script>
+        window.addEventListener("mousedown", (event) => {
+            
+            // Grab the heading element to change its text
+            const textHeading = document.getElementById("message");
+
+            // event.button === 0 means Left Click
+            if (event.button === 0) {
+                textHeading.innerText = "Left Clicked! 👈";
+            } 
+            // event.button === 2 means Right Click
+            else if (event.button === 2) {
+                textHeading.innerText = "Right Clicked! 👉";
+            }
+        });
+
+        // 2. Stop the browser's default menu from opening when right-clicking
+        window.addEventListener("contextmenu", (event) => {
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

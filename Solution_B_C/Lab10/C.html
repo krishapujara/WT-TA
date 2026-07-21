@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Checkbox Example</title>
+  </head>
+  <body>
+    <h3>Select Roll Numbers</h3>
+
+    <input type="checkbox" value="101" />101 <br />
+    <input type="checkbox" value="102" />102 <br />
+    <input type="checkbox" value="103" />103 <br />
+    <input type="checkbox" value="104" />104 <br />
+
+    <h3>Selected Roll Numbers:</h3>
+    <p id="result"></p>
+
+    <script>
+      var checkbox = document.getElementsByTagName("input");
+
+      // Add click event to every checkbox
+      for (var i = 0; i < checkbox.length; i++) {
+        checkbox[i].addEventListener("click", showData);
+      }
+
+      function showData() {
+        var text = "";
+
+        for (var i = 0; i < checkbox.length; i++) {
+          if (checkbox[i].checked) {
+            text = text + checkbox[i].value + ", ";
+          }
+        }
+
+        // Remove last comma
+        if (text != "") {
+          text = text.substring(0, text.length - 2);
+        }
+
+        document.getElementById("result").innerHTML = text;
+      }
+    </script>
+  </body>
+</html>
