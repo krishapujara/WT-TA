@@ -1,0 +1,128 @@
+jQuery Code Examples
+
+Include jQuery
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+Document Ready
+
+    $(document).ready(function(){
+
+    });
+
+Shortcut:
+
+    $(function(){
+
+    });
+
+Basic Syntax
+
+    $(selector).action();
+
+Selectors
+
+    $("p");      // Element
+    $("#title"); // ID
+    $(".box");   // Class
+
+Hide / Show / Toggle
+
+    $("p").hide();
+    $("p").show();
+    $("p").toggle();
+
+Click Event
+
+    $("button").click(function(){
+        alert("Button clicked");
+    });
+
+Double Click
+
+    $("button").dblclick(function(){
+        alert("Double Click");
+    });
+
+Mouse Events
+
+    $("div").mouseenter(function(){
+        alert("Mouse entered");
+    });
+
+    $("div").mouseleave(function(){
+        alert("Mouse left");
+    });
+
+Fade Effects
+
+    $("div").fadeIn();
+    $("div").fadeOut();
+    $("div").fadeToggle();
+
+Slide Effects
+
+    $("div").slideDown();
+    $("div").slideUp();
+    $("div").slideToggle();
+
+Change Text
+
+    $("p").text("Welcome");
+
+Change HTML
+
+    $("p").html("<b>Hello</b>");
+
+Get / Set Input Value
+
+    $("#name").val();
+    $("#name").val("Vishva");
+
+CSS
+
+    $("p").css("color","red");
+
+    $("p").css({
+        color:"red",
+        background:"yellow"
+    });
+
+Classes
+
+    $("p").addClass("active");
+    $("p").removeClass("active");
+    $("p").toggleClass("active");
+
+Append / Prepend
+
+    $("ul").append("<li>Apple</li>");
+    $("ul").prepend("<li>Mango</li>");
+
+Remove / Empty
+
+    $("p").remove();
+    $("div").empty();
+
+Chaining
+
+    $("p")
+    .hide()
+    .css("color","red")
+    .slideDown();
+
+JavaScript vs jQuery
+
+JavaScript
+
+    document.getElementById("demo").innerHTML = "Hello";
+    document.querySelector("p").style.color = "red";
+    element.style.display = "none";
+    element.addEventListener("click", function(){});
+
+jQuery
+
+    $("#demo").text("Hello");
+    $("p").css("color","red");
+    $("p").hide();
+    $("button").click(function(){});
