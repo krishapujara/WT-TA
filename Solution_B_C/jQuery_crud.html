@@ -1,0 +1,136 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <title>Simple CRUD</title>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body{
+            font-family:Arial;
+            margin:40px;
+        }
+
+        input{
+            padding:8px;
+            width:220px;
+        }
+
+        button{
+            padding:8px 15px;
+            cursor:pointer;
+            margin-left:5px;
+        }
+
+        table{
+            border-collapse:collapse;
+            width:400px;
+            margin-top:20px;
+        }
+
+        table,th,td{
+            border:1px solid black;
+        }
+
+        th,td{
+            padding:10px;
+            text-align:center;
+        }
+    </style>
+
+</head>
+<body>
+
+<h2>Simple CRUD Operation</h2>
+
+<input type="text" id="txtName" placeholder="Enter Name">
+<button id="btnAdd">Add</button>
+
+<table>
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Action</th>
+    </tr>
+
+    <tbody id="tableData"></tbody>
+
+</table>
+
+<script>
+
+let arr = [];
+let editIndex = -1;
+
+$("#btnAdd").click(function(){
+
+    let name = $("#txtName").val();
+
+    if(name==""){
+        alert("Enter Name");
+        return;
+    }
+
+    if(editIndex==-1){
+
+        arr.push(name);
+
+    }
+    else{
+
+        arr[editIndex]=name;
+        editIndex=-1;
+        $("#btnAdd").text("Add");
+
+    }
+
+    $("#txtName").val("");
+
+    showData();
+
+});
+
+function showData(){
+
+    let output="";
+
+    $.each(arr,function(index,value){
+
+        output+=`
+        <tr>
+            <td>${index+1}</td>
+            <td>${value}</td>
+            <td>
+                <button onclick="editData(${index})">Edit</button>
+                <button onclick="deleteData(${index})">Delete</button>
+            </td>
+        </tr>
+        `;
+
+    });
+
+    $("#tableData").html(output);
+
+}
+
+function editData(index){
+
+    editIndex=index;
+
+    $("#txtName").val(arr[index]);
+
+    $("#btnAdd").text("Update");
+
+}
+
+function deleteData(index){
+
+    arr.splice(index,1);
+    showData();
+
+}
+
+</script>
+
+</body>
+</html>
